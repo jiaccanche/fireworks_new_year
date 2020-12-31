@@ -6,7 +6,7 @@ function particle(x,y, firework,hu){
     this.hu= hu;
     
     if(this.firework){
-    this.vel = createVector(0,random(-15,-10));
+    this.vel = createVector(0,random( height < 700 ? -16: -25,height < 700 ? -10: -15));
     }else{
         //Explota aqui
         this.vel =  p5.Vector.random2D();
@@ -30,8 +30,8 @@ function particle(x,y, firework,hu){
 
         if(!this.firework){
             //limita el rango de explosión
-            this.vel.mult(0.85);
-            this.lifespan -=4;
+            this.vel.mult(0.95);
+            this.lifespan -=3;
         }
 
         this.vel.add(this.acc);
@@ -44,8 +44,10 @@ function particle(x,y, firework,hu){
         if(!this.firework){
             strokeWeight(2);
             stroke(this.hu,255,255,this.lifespan);
+            strokeWeight(0.002 * height);
         }else{
-            strokeWeight(4);
+            strokeWeight(0.015 * height);
+            console.log(height);
             stroke(this.hu,255,255);
         }
 
