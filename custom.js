@@ -6,8 +6,15 @@ var changeName = function(){
   
 }
 
+var resizeCanvasCustom = function(){
+  var canvas = document.getElementById('defaultCanvas0');
+  var heightRatio = 1.5;
+  canvas.height = canvas.width * heightRatio;
+}
+
 var loadMain = function(){
   changeName();
+  resizeCanvasCustom();
 }
 
 //funciones buscadas en internet:

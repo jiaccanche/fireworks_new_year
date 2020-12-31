@@ -1,5 +1,6 @@
 function firework(x,y){
     console.log(x,y);
+    //color
     this.hu = random(255);
     this.firework = new particle(x,y,true,this.hu);
     this.exploded = false;
