@@ -3,8 +3,8 @@ var gravity;
 var lenght = 500;
 
 function setup(){
+    console.log(windowWidth,windowHeight);
     var canva = createCanvas(windowWidth,windowHeight);
-    debugger;
     colorMode(HSB);
     gravity = createVector(0,0.2);
     stroke(255);
@@ -18,7 +18,6 @@ function draw(){
     background(0,0,0,50);
     
     if(random(1) < 0.08 && fireworks.length<12){
-        console.log("tamaños iniciales:",width,height);
         fireworks.push(new firework(random(400,width - 400 ),height));
     }
     
@@ -38,4 +37,8 @@ function draw(){
 
     }
     //primeravez=false;
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }

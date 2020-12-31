@@ -7,14 +7,14 @@ var changeName = function(){
 }
 
 var resizeCanvasCustom = function(){
-  var canvas = document.getElementById('defaultCanvas0');
-  var heightRatio = 1.5;
-  canvas.height = canvas.width * heightRatio;
+    console.log(1);
+    
 }
 
 var loadMain = function(){
   changeName();
-  resizeCanvasCustom();
+  window.addEventListener('resize', resizeCanvasCustom(), false);
+  window.addEventListener('orientationchange', resizeCanvasCustom(), false);
 }
 
 //funciones buscadas en internet:
