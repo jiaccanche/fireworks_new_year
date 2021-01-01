@@ -25,6 +25,8 @@
     h1{
       color: white;
       text-align:center;
+      font-size:8vw;
+      width: 100%;
     }
   
     canvas {
@@ -33,12 +35,37 @@
     position:fixed; 
     vertical-align: top;
     z-index: -1;
-    } 
+    }
 
+    a {
+      font-size:2vw;
+      color:white;
+      border-radius: 10px;
+      background-color: #008CBA;
+      position:absolute;
+      bottom: 5%;
+      right:2%;
+      padding: 10px;
+      cursor: pointer;
+    }
+    
+    .container {
+      max-width: 920px;
+      padding-top: 10rem;
+      margin-right: 15px;
+      margin-left: 15px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     </style>
   </head>
   <body>
-    <h1>! Feliz Año Nuevo <span id="name">Sobreviviente</span> !</h1>
-    <button>Envia un feliz año nuevo</button>
+    <div class="container">
+      <h1>! Feliz Año Nuevo <span id="name">Sobreviviente</span> !</h1>
+      <a id="namebtn">Enviar a otro</a>
+    </div>
+    
   </body>
 </html>
