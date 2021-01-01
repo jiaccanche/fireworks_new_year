@@ -46,21 +46,12 @@ var addPerson = function(){
       selection.removeAllRanges();
     }else{
       console.log("Ops! it didn't work");
-      const queryOpts = { name: 'clipboard-read', allowWithoutGesture: false };
-      const permissionStatus = await navigator.permissions.query(queryOpts);
-      // Will be 'granted', 'denied' or 'prompt':
-      console.log(permissionStatus.state);
-    
-      // Listen for changes to the permission state
-      permissionStatus.onchange = () => {
-        console.log(permissionStatus.state);
-      };
-      
       try {
         await navigator.clipboard.writeText(copyText);
         console.log('Page URL copied to clipboard');
       } catch (err) {
         console.error('Failed to copy: ', err);
+        document.execCommand('copy');
       }
     }
     // Remove it as its not needed anymore
