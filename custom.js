@@ -45,7 +45,7 @@ var addPerson = function(){
       console.log("bien");
       selection.removeAllRanges();
     }else{
-      alert("Ops! it didn't work");
+      console.log("Ops! it didn't work");
       navigator.clipboard.writeText(copyText)
       .then(() => { alert(`Copied!`) })
       .catch((error) => { alert(`Copy failed! ${error}`) })
