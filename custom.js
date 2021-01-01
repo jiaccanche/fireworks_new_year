@@ -40,6 +40,11 @@ var addPerson = function(){
       console.log("bien");
     }else{
       console.log("Ops! it didn't work");
+      navigator.clipboard.writeText(copyText).then(function() {
+        console.log("good");   
+      }, function(err) {
+        console.log("Ops! it didn't work",err);
+      });
       document.execCommand('copy');
     }
     // Remove it as its not needed anymore
