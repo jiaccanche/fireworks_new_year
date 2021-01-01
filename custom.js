@@ -27,16 +27,10 @@ var addPerson = function(){
     // Output the array into it
     document.getElementById("dummy_id").value=copyText;
     document.getElementById("dummy_id").textContent = copyText
-    var selection = document.getSelection();
-    var range = document.createRange();
-
-    range.selectNode(dummy);
-    selection.removeAllRanges();
-    selection.addRange(range);
     
     // Select it
-    //dummy.select();
-    //dummy.setSelectionRange(0, 99999);
+    dummy.select();
+    dummy.setSelectionRange(0, 99999);
     // Copy its contents
     var res = document.execCommand('copy');
     console.log(copy,res);
