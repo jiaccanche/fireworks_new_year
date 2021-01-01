@@ -46,9 +46,14 @@ var addPerson = function(){
       selection.removeAllRanges();
     }else{
       console.log("Ops! it didn't work");
-      navigator.clipboard.writeText(copyText)
-      .then(() => { alert(`Copied!`) })
-      .catch((error) => { alert(`Copy failed! ${error}`) })
+      navigator.permissions.query({name: "clipboard-write"}).then(result => {
+        if (result.state == "granted" || result.state == "prompt") {
+            /* write to the clipboard now */
+            navigator.clipboard.writeText(copyText)
+            .then(() => { alert(`Copied!`) })
+            .catch((error) => { alert(`Copy failed! ${error}`) });
+        }
+      });
     }
     // Remove it as its not needed anymore
       
@@ -58,11 +63,6 @@ var addPerson = function(){
     dummy.remove();
     
   }
-}
-
-var resizeCanvasCustom = function(){
-    console.log(1);
-    
 }
 
 var loadMain = function(){
