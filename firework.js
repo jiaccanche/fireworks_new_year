@@ -37,7 +37,7 @@ function firework(x,y){
                 this.particles[i].update();
     
                 if(this.particles[i].done()){
-                   this.particles.splice(i,40);
+                   this.particles.splice(i,60);
                 }
             }
         }
@@ -46,7 +46,7 @@ function firework(x,y){
     }
 
     this.explode = function(){
-        for (let i = 0; i < 60 ; i++) {
+        for (let i = 0; i < 80 ; i++) {
             var x = 16 * pow(sin(i), 3); var y = 13 * cos(i) - 5 * cos(2 * i) - 2 * cos(3 * i) - cos(4 * i);
             var p = new particle(this.firework.pos.x,this.firework.pos.y,false,this.hu);
             //var p = new particle(this.firework.pos.x+x,this.firework.pos.y+y,false,this.hu);

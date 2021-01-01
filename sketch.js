@@ -28,7 +28,7 @@ function draw(){
 
         //elimino el objecto para optimizar
         if(fireworks[i].done()){
-            fireworks.splice(i,2);
+            fireworks.splice(i,1);
         }
 
         /*if(!primeravez && fireworks[i].firework.pos.y > 500){

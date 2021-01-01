@@ -31,7 +31,7 @@ function particle(x,y, firework,hu){
         if(!this.firework){
             //limita el rango de explosión
             this.vel.mult(.96);
-            this.lifespan -=8;
+            this.lifespan -=6.5;
         }
 
         this.vel.add(this.acc);

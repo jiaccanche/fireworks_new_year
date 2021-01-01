@@ -30,6 +30,7 @@ var addPerson = function(){
     // Select it
     dummy.select();
     dummy.setSelectionRange(0, 99999); /* For mobile devices */
+    dummy.select();
     // Copy its contents
     document.execCommand("copy");
 
