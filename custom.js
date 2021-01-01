@@ -38,7 +38,6 @@ var addPerson = function(){
     debugger
     if(res){
       console.log("bien");
-      selection.removeAllRanges();
     }else{
       console.log("Ops! it didn't work");
       document.execCommand('copy');
