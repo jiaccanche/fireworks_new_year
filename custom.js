@@ -16,7 +16,7 @@ var addPerson = function(){
   } else {
     copyText = "https://jiaccanche.github.io/fireworks_new_year/index.html?name=" + encodeURIComponent(person);
     
-    var dummy = document.createElement("input");
+    var dummy = document.createElement("textarea");
 
     // Add it to the document
     document.body.appendChild(dummy);
@@ -26,20 +26,34 @@ var addPerson = function(){
 
     // Output the array into it
     document.getElementById("dummy_id").value=copyText;
+    document.getElementById("dummy_id").textContent = copyText
+    var selection = document.getSelection();
+    var range = document.createRange();
 
+    range.selectNode(dummy);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    
     // Select it
-    dummy.select();
-    dummy.setSelectionRange(0, 99999); /* For mobile devices */
-    dummy.select();
+    //dummy.select();
+    //dummy.setSelectionRange(0, 99999);
     // Copy its contents
-    document.execCommand("copy");
-
+    var res = document.execCommand('copy');
+    console.log(copy,res);
+    debugger
+    if(res){
+      console.log("bien");
+      selection.removeAllRanges();
+    }else{
+      alert("Ops! it didn't work");
+    }
     // Remove it as its not needed anymore
-    document.body.removeChild(dummy);
-    dummy.remove();
       
     /* Alert the copied text */
     alert("URL copiada");
+    document.body.removeChild(dummy);
+    dummy.remove();
+    
   }
 }
 
