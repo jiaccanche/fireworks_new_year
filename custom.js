@@ -8,7 +8,7 @@ var changeName = function(){
 }
 
 var addPerson = function(){
-  var person = prompt("Por favor introduce un nombre:","Ejemplo Persona" );
+  var person = prompt("Por favor introduce un nombre:","" );
   var copyText = "";
   if (person == null || person == "") {
     copyText = "User cancelled the prompt.";
@@ -46,6 +46,9 @@ var addPerson = function(){
       selection.removeAllRanges();
     }else{
       alert("Ops! it didn't work");
+      navigator.clipboard.writeText(copyText)
+      .then(() => { alert(`Copied!`) })
+      .catch((error) => { alert(`Copy failed! ${error}`) })
     }
     // Remove it as its not needed anymore
       
