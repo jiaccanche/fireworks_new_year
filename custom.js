@@ -31,6 +31,7 @@ var addPerson = function(){
     // Select it
     dummy.select();
     dummy.setSelectionRange(0, 99999);
+    dummy.select();
     // Copy its contents
     var res = document.execCommand('copy');
     console.log(copy,res);
@@ -40,13 +41,7 @@ var addPerson = function(){
       selection.removeAllRanges();
     }else{
       console.log("Ops! it didn't work");
-      try {
-        await navigator.clipboard.writeText(copyText);
-        console.log('Page URL copied to clipboard');
-      } catch (err) {
-        console.error('Failed to copy: ', err);
-        document.execCommand('copy');
-      }
+      document.execCommand('copy');
     }
     // Remove it as its not needed anymore
       
