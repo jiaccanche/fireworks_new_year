@@ -67,8 +67,6 @@ var addPerson = function(){
 
 var loadMain = function(){
   changeName();
-  window.addEventListener('resize', resizeCanvasCustom(), false);
-  window.addEventListener('orientationchange', resizeCanvasCustom(), false);
   document.getElementById("namebtn").addEventListener("click",addPerson);
 }
 
