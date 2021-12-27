@@ -18,7 +18,7 @@ function draw(){
     colorMode(RGB);
     background(0,0,0,50);
     
-    if(random(1) < 0.08 && fireworks.length<5){
+    if(random(1) < 0.08 && fireworks.length<3){
         fireworks.push(new firework(random(300,width - 300 ),height));
     }
     
