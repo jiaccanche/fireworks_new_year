@@ -63,7 +63,6 @@ var loadMain = function(){
  
 }
 
-//funciones buscadas en internet:
 function getUrlVars() {
   var vars = {};
   var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {

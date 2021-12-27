@@ -3,10 +3,10 @@ var gravity;
 var lenght = 500;
 
 function setup(){
-    console.log(windowWidth,windowHeight);
+    //console.log(windowWidth,windowHeight);
     var canva = createCanvas(windowWidth,windowHeight);
     colorMode(HSB);
-    console.log(height);
+    //console.log(height);
     gravity = createVector(0,0.2);
     stroke(255);
     strokeWeight(4);

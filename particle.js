@@ -47,7 +47,7 @@ function particle(x,y, firework,hu){
             strokeWeight(0.0023 * height);
         }else{
             strokeWeight(0.015 * height);
-            console.log(height);
+            //console.log(height);
             stroke(this.hu,255,255);
         }
 
