@@ -1,3 +1,48 @@
+function createInputTxt(copyText){
+  console.log("sads",copyText);
+  return new Promise(resolve => {
+    console.log(copyText);
+    var dummy = document.createElement("input");
+
+    // Add it to the document
+    document.body.appendChild(dummy);
+    
+    // Set its ID
+    dummy.setAttribute("id", "dummy_id");
+    console.log(dummy);
+    // Output the array into it
+    document.getElementById("dummy_id").value=copyText;
+    document.getElementById("dummy_id").textContent = copyText;
+  
+    // Copy its contents
+    dummy.select();
+  });
+ 
+}
+
+function copyClipboard(){
+  return new Promise(asd => {
+    res = document.execCommand("copy");
+  if(res){
+    console.log("bien");
+    alert("URL copiada");
+  }else{
+    console.log("Ops! it didn't work");
+    document.execCommand("copy");
+    alert("Es posible que no se hay hecho el copy");
+  }
+  });
+  
+  // Remove it as its not needed anymore
+    
+  /* Alert the copied text */
+ 
+}
+
+async function createInitials(copyText){
+  createInputTxt(copyText);
+  copyClipboard();
+}
 
 var changeName = function(){
   var name = getUrlParam('name','A todos'); 
@@ -14,40 +59,14 @@ var addPerson = function(){
     copyText = "User cancelled the prompt.";
     alert("Algo salio mal");
   } else {
-    copyText = "https://jiaccanche.github.io/fireworks_new_year/index.html?name=" + encodeURIComponent(person);
+    copyText = "https://bit.ly/3eGUOxH?name=" + encodeURIComponent(person);
     
-    var dummy = document.createElement("input");
-
-    // Add it to the document
-    document.body.appendChild(dummy);
-
-    // Set its ID
-    dummy.setAttribute("id", "dummy_id");
-
-    // Output the array into it
-    document.getElementById("dummy_id").value=copyText;
-    document.getElementById("dummy_id").textContent = copyText;
-
-    // Copy its contents
-    dummy.select();
-    //dummy.setSelectionRange(0, 99999);
-    let res = true;
-    res = document.execCommand("copy");
-    res = document.execCommand("copy");
+    //console.log(copyText);
+    createInitials(copyText);
     
-    
-    if(res){
-      console.log("bien");
-    }else{
-      console.log("Ops! it didn't work");
-      document.execCommand("copy");
-    }
-    // Remove it as its not needed anymore
-      
-    /* Alert the copied text */
-    alert("URL copiada");
-    document.body.removeChild(dummy);
-    dummy.remove();
+    let inpt = document.getElementById("dummy_id");
+    document.body.removeChild(inpt);
+    inpt.remove();
     
   }
 }
@@ -73,5 +92,7 @@ function getUrlParam(parameter, defaultvalue){
       }
   return urlparameter;
 }
+
+
 //
 window.onload = loadMain 
