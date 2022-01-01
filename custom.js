@@ -16,7 +16,7 @@ var addPerson = function(){
   } else {
     copyText = "https://jiaccanche.github.io/fireworks_new_year/index.html?name=" + encodeURIComponent(person);
     
-    var dummy = document.createElement("textarea");
+    var dummy = document.createElement("input");
 
     // Add it to the document
     document.body.appendChild(dummy);
@@ -30,23 +30,10 @@ var addPerson = function(){
 
     // Copy its contents
     dummy.select();
-    dummy.setSelectionRange(0, 99999);
+    //dummy.setSelectionRange(0, 99999);
     let res = true;
-    navigator.permissions.query({name: "clipboard-write"}).then(result => {
-      if (result.state == "granted" || result.state == "prompt") {
-        /* write to the clipboard now */
-        
-    navigator.clipboard
-      .writeText(copyText)
-      .then(() => {
-        res = true;
-      })
-      .catch(() => {
-        res = false;
-      });
-      }
-    });
-    
+    res = document.execCommand("copy");
+    res = document.execCommand("copy");
     
     
     if(res){
