@@ -26,12 +26,16 @@ var addPerson = function(){
 
     // Output the array into it
     document.getElementById("dummy_id").value=copyText;
-    document.getElementById("dummy_id").textContent = copyText
-    
+    document.getElementById("dummy_id").textContent = copyText;
+
     // Copy its contents
     dummy.select();
     dummy.setSelectionRange(0, 99999);
     let res = true;
+    navigator.permissions.query({name: "clipboard-write"}).then(result => {
+      if (result.state == "granted" || result.state == "prompt") {
+        /* write to the clipboard now */
+        
     navigator.clipboard
       .writeText(copyText)
       .then(() => {
@@ -40,15 +44,16 @@ var addPerson = function(){
       .catch(() => {
         res = false;
       });
+      }
+    });
+    
+    
+    
     if(res){
       console.log("bien");
     }else{
       console.log("Ops! it didn't work");
-      navigator.clipboard.writeText(copyText).then(function() {
-        console.log("good");   
-      }, function(err) {
-        console.log("Ops! it didn't work",err);
-      });
+      document.execCommand("copy");
     }
     // Remove it as its not needed anymore
       
