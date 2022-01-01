@@ -28,14 +28,18 @@ var addPerson = function(){
     document.getElementById("dummy_id").value=copyText;
     document.getElementById("dummy_id").textContent = copyText
     
-    // Select it
+    // Copy its contents
     dummy.select();
     dummy.setSelectionRange(0, 99999);
-    dummy.select();
-    // Copy its contents
-    var res = document.execCommand('copy');
-    console.log(copy,res);
-    debugger
+    let res = true;
+    navigator.clipboard
+      .writeText(copyText)
+      .then(() => {
+        res = true;
+      })
+      .catch(() => {
+        res = false;
+      });
     if(res){
       console.log("bien");
     }else{
@@ -45,7 +49,6 @@ var addPerson = function(){
       }, function(err) {
         console.log("Ops! it didn't work",err);
       });
-      document.execCommand('copy');
     }
     // Remove it as its not needed anymore
       
